@@ -6,6 +6,7 @@ import path from "path";
 
 dotenv.config();
 
+/* istanbul ignore next */
 if (!process.env.PORT) {
   process.exit(1);
 }
@@ -18,8 +19,6 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.listen(PORT, () => {
-  // console.log(`Listening on port ${PORT}`);
-});
+export const server = app.listen(PORT, () => {});
 
 app.use(express.static(path.join(__dirname, "../public")));

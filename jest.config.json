@@ -12,19 +12,15 @@
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts$",
     "coverageDirectory": "coverage",
     "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/**/*.d.ts"
+      "src/*.ts"
     ],
     "setupFiles": [
       "<rootDir>/jest-setup.js"
     ],
-    "preset": "@shelf/jest-mongodb",
     "coverageThreshold": {
       "global": {
-        "branches": 0,
-        "functions": 0,
-        "lines": 0,
-        "statements": 0
+        "functions": 100,
+        "lines": 100
       }
     },
     "coveragePathIgnorePatterns": [
