@@ -2,6 +2,7 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import path from "path";
 
 dotenv.config();
 
@@ -20,3 +21,5 @@ app.use(express.json());
 app.listen(PORT, () => {
   // console.log(`Listening on port ${PORT}`);
 });
+
+app.use(express.static(path.join(__dirname, '../public')))

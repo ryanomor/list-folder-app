@@ -1,6 +1,6 @@
-const fs = require('fs')
-const util = require('util')
-const readline = require('readline')
+import fs from 'fs'
+import util from 'util'
+import readline from 'readline'
 
 const getFiles = async () => {
     const rl = readline.createInterface(process.stdin, process.stdout)
@@ -14,7 +14,7 @@ const getFiles = async () => {
             rl.close() 
         } else {
             try { 
-                listFiles(src.trim(), [])
+                listFiles(src.trim())
                 setTimeout(() => callPrompt(rl), 1500)
             } catch (e) {
                 callPrompt(rl, 'err')
@@ -33,14 +33,14 @@ const callPrompt = (readLine: any, err?: string) => {
     readLine.prompt();
 }
 
-const listFiles = async (path: any, arrayOfFiles: object[]) => {
+const listFiles = async (path: any) => {
     const files = fs.readdirSync(path)
     const fsStat = util.promisify(fs.stat)
     let fileEntry = {}
     let totalSize = 0
     let totalCount = 0
 
-    arrayOfFiles = arrayOfFiles || []
+    let arrayOfFiles: object[] = []
 
     files.reduce(function(p: any, file: any) {
         return p.then(() => {
@@ -56,9 +56,9 @@ const listFiles = async (path: any, arrayOfFiles: object[]) => {
             });
         });
     }, Promise.resolve()).then(() => {
-        arrayOfFiles.sort((a: any, b: any) => a["size"] - b["size"])
-        console.log(arrayOfFiles.map((file: any, i) => `${i+1}. ${path}/${file.file} is ${file.size} KB and last modified ${file.lastModified}`))
-        console.log(`Total size: ${totalSize} KB`)
+        arrayOfFiles.sort((a: any, b: any) => a.size - b.size)
+        console.log(arrayOfFiles.map((file: any, i) => `${i+1}. ${path}/${file.file} is ${file.size} KiB and last modified ${file.lastModified}`))
+        console.log(`Total size: ${totalSize} KiB`)
         console.log(`Total count: ${totalCount}`)
     })
 }

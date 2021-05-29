@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="script.js" defer></script>
+    <style>
+        td,
+        th {
+            border: 1px solid rgb(190, 190, 190);
+            padding: 10px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        th[scope="col"] {
+            background-color: #696969;
+            color: #fff;
+        }
+
+        th[scope="row"] {
+            background-color: #d7d9f2;
+        }
+
+        caption {
+            padding: 10px;
+            caption-side: bottom;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(200, 200, 200);
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            font-size: .8rem;
+        }
+    </style>
+    <title>List File App</title>
+</head>
+<body>
+    <form>
+        <h1>Select folder</h1>
+
+        <input id="input" type="file" multiple=false webkitdirectory>
+        
+        <div>
+            <button type="submit">Get List</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4">Files & Folders List</th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+                <tr id='body-header'>
+                    <th scope="col">Name</td>
+                    <th scope="col">Last Modified</td>
+                    <th scope="col">Size</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
