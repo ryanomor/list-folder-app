@@ -8,7 +8,8 @@
     "build": "tsc",
     "build:watch": "tsc -w",
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
-    "format": "tslint -p . --fix && prettier --write '**/*.ts'"
+    "format": "tslint -p . --fix && prettier --write '**/*.ts'",
+    "cli-app": "ts-node -e 'require(\"./src/getFiles\").getFiles()'"
   },
   "repository": {
     "type": "git",
