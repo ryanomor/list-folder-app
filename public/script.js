@@ -1,8 +1,11 @@
 var input = document.getElementById('input')
 var tBody = document.getElementById('tBody')
 var bodyHeader = document.getElementById('body-header')
+var sourceFolder = document.getElementById('source-folder')
+var errObj = document.getElementById('err')
 
 input.addEventListener('change', (e) => {
+    errObj.hidden = true
     console.log('input files:', input.files)
 })
 
@@ -10,8 +13,11 @@ document.addEventListener('submit', (e) => {
     e.preventDefault()
     tBody.innerHTML = ''
     tBody.appendChild(bodyHeader)
+    sourceFolder.innerText = ''
 
-    if (input != null) {
+    if (input.files.length > 0) {
+        errObj.hidden = true
+        sourceFolder.innerText = `(Source: ${input.files[0].webkitRelativePath.split('/')[0]})`
         let tr 
         let thName
         let tdSize
@@ -66,7 +72,11 @@ document.addEventListener('submit', (e) => {
         tr.appendChild(tdSize)
 
         tBody.appendChild(tr)
+    } else {
+        errObj.hidden = false
     }
+
+    input.value = ''
 })
 
 const listFiles = files => {

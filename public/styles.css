@@ -1,0 +1,95 @@
+/* Global Styles */
+body {
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    color: #333;
+    background: #ececec;
+    overflow-y: scroll;
+    margin: auto;
+    max-width: max-content;
+}
+
+/* Button Styles */
+button {
+    display: block;
+    position: relative;
+    width: 120px;
+    padding: 0;
+    margin: 20px auto;
+    font-weight: 600;
+    text-align: center;
+    line-height: 50px;
+    color: #FFF;
+    border-radius: 5px;
+    transition: all 0.2s;
+    background: #00AE68;
+}
+
+button.btnPush {
+    box-shadow: 0px 5px 0px 0px #1E8185;
+}
+
+button.btnPush:hover {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 0px 0px #1E8185;
+    cursor: pointer;
+}
+
+/* Form styles */
+form {
+    margin: auto;
+    max-width: max-content;
+}
+
+/* Input Styles */
+input {
+    box-sizing: border-box;
+    border: 2px solid #333;
+    background-color: #00d580;
+}
+
+/* Table Styles */
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+}
+
+th[scope="col"] {
+    background-color: #696969;
+    color: #fff;
+}
+
+th[scope="row"] {
+    background-color: #d7d9f2;
+}
+
+caption {
+    padding: 10px;
+    caption-side: bottom;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-size: .8rem;
+    margin: auto;
+    width: 100%;
+}
+
+/* Error */
+#err {
+    color: firebrick;
+    font-size: 14px;
+}
