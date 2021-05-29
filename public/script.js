@@ -20,7 +20,6 @@ document.addEventListener('submit', (e) => {
         var res = listFiles(input.files)
         
         res.files.forEach(file => {
-            console.log('in for each')
             tr = document.createElement('tr')
             thName = document.createElement('th')
             tdSize = document.createElement('td')

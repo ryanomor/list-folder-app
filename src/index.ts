@@ -22,4 +22,4 @@ app.listen(PORT, () => {
   // console.log(`Listening on port ${PORT}`);
 });
 
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(path.join(__dirname, "../public")));
