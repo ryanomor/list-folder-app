@@ -6,11 +6,7 @@ const request = supertest(server);
 const mockUrl = "http://127.0.0.1:9000";
 
 describe("Test server", () => {
-  beforeAll((async) => {
-    async();
-  });
-
-  afterAll(() => {
+  afterAll(async () => {
     server.close();
   });
 
@@ -24,6 +20,7 @@ describe("Test server", () => {
 
   it("should call app with 404 when request is not found", async (done) => {
     nock(mockUrl).get("/badrequest").reply(404);
+
     const res = await request.get("/badrequest");
     expect(res.status).toEqual(404);
     done();

@@ -20,11 +20,8 @@
     "coverageThreshold": {
       "global": {
         "functions": 100,
+        "branches": 100,
         "lines": 100
       }
-    },
-    "coveragePathIgnorePatterns": [
-        "<rootDir>/src/auth/*",
-        "<rootDir>/src/config.ts"
-    ]
+    }
 }

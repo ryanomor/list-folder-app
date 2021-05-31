@@ -4,7 +4,7 @@
   "description": "An app that lists the folders and files in a source folder",
   "main": "src/index.ts",
   "scripts": {
-    "test": "jest --config './jest.config.json' --collect-coverage --runInBand --detectOpenHandles",
+    "test": "jest --config './jest.config.json' --collect-coverage --runInBand",
     "build": "tsc",
     "start": "node dist/index.js",
     "local": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",

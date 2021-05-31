@@ -1,12 +1,11 @@
+var errObj = document.getElementById('err')
 var input = document.getElementById('input')
 var tBody = document.getElementById('tBody')
 var bodyHeader = document.getElementById('body-header')
 var sourceFolder = document.getElementById('source-folder')
-var errObj = document.getElementById('err')
 
 input.addEventListener('change', (e) => {
     errObj.hidden = true
-    console.log('input files:', input.files)
 })
 
 document.addEventListener('submit', (e) => {
@@ -32,7 +31,7 @@ document.addEventListener('submit', (e) => {
             tdLastModified = document.createElement('td')
             
             thName.scope = 'row'
-            thName.innerText = file.webkitRelativePath
+            thName.innerText = file.name
             
             tdSize.innerText = file.size
             

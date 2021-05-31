@@ -2,7 +2,7 @@ import fs from "fs";
 import util from "util";
 import readline from "readline";
 
-const getFiles = async () => {
+export const getFiles = async () => {
   const rl = readline.createInterface(process.stdin, process.stdout);
   const query =
     "This app prints the files and folders of a source folder\nPlease enter the root path of the folder\nor enter Y to exit: ";
@@ -16,7 +16,7 @@ const getFiles = async () => {
     } else {
       try {
         listFiles(src.trim());
-        setTimeout(() => callPrompt(rl), 1500);
+        setTimeout(() => callPrompt(rl), 1000);
       } catch (e) {
         callPrompt(rl, "err");
       }
@@ -33,7 +33,7 @@ const callPrompt = (readLine: any, err?: string) => {
   readLine.prompt();
 };
 
-const listFiles = async (path: any) => {
+export const listFiles = (path: any) => {
   const files = fs.readdirSync(path);
   const fsStat = util.promisify(fs.stat);
   let fileEntry = {};
@@ -68,8 +68,13 @@ const listFiles = async (path: any) => {
         )
       );
       console.log(`Total size: ${totalSize} KiB`);
-      console.log(`Total count: ${totalCount}`);
+      console.log(`Total count: ${totalCount} items`);
     });
 };
 
-module.exports = { getFiles };
+const exportFunctions = {
+  getFiles,
+  listFiles,
+};
+
+export default exportFunctions;
