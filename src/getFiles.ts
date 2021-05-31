@@ -64,10 +64,10 @@ export const listFiles = (path: any) => {
           (file: any, i) =>
             `${i + 1}. ${path}/${file.file} is ${
               file.size
-            } KiB and last modified ${file.lastModified}`
+            } bytes and last modified ${file.lastModified}`
         )
       );
-      console.log(`Total size: ${totalSize} KiB`);
+      console.log(`Total size: ${totalSize} bytes`);
       console.log(`Total count: ${totalCount} items`);
     });
 };

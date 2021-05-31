@@ -65,7 +65,7 @@ document.addEventListener('submit', (e) => {
         tdSize.colSpan = 3
         thName.innerText = 'Total Size of Files & Folders'
 
-        tdSize.innerText = res.totalSize + ' KiB'
+        tdSize.innerText = res.totalSize + ' bytes'
 
         tr.appendChild(thName)
         tr.appendChild(tdSize)
